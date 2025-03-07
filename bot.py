@@ -118,6 +118,27 @@ async def uptime(ctx):
     delta = datetime.datetime.utcnow() - bot.start_time
     embed = discord.Embed(title="Uptime", description=str(delta).split('.')[0], color=discord.Color.green())
     await ctx.send(embed=embed)
+@bot.command()
+async def help(ctx):
+    embed = discord.Embed(title="Help", description="List of all available commands:", color=discord.Color.blue())
+    embed.add_field(name=",ping", value="Shows the bot's latency.", inline=False)
+    embed.add_field(name=",avatar [member]", value="Displays the avatar of the specified member (or yourself).", inline=False)
+    embed.add_field(name=",kick [member] [reason]", value="Kicks a member from the server.", inline=False)
+    embed.add_field(name=",ban [member] [reason]", value="Bans a member from the server.", inline=False)
+    embed.add_field(name=",purge [amount]", value="Deletes a specified number of messages.", inline=False)
+    embed.add_field(name=",clear [amount]", value="Clears a specified number of messages.", inline=False)
+    embed.add_field(name=",mute [member]", value="Mutes the specified member.", inline=False)
+    embed.add_field(name=",unmute [member]", value="Unmutes the specified member.", inline=False)
+    embed.add_field(name=",lock", value="Locks the current channel.", inline=False)
+    embed.add_field(name=",unlock", value="Unlocks the current channel.", inline=False)
+    embed.add_field(name=",coinflip", value="Flips a coin (Heads or Tails).", inline=False)
+    embed.add_field(name=",roll [sides]", value="Rolls a dice with the specified number of sides.", inline=False)
+    embed.add_field(name=",serverinfo", value="Displays information about the current server.", inline=False)
+    embed.add_field(name=",uptime", value="Shows how long the bot has been online.", inline=False)
+    
+    embed.set_footer(text="Use ,<command> for detailed information.")
+    await ctx.send(embed=embed)
+
 
 bot.start_time = datetime.datetime.utcnow()
 bot.run(token)
