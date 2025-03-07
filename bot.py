@@ -7,10 +7,12 @@ import time
 import pytz
 import requests
 import os
+from dotenv import load_dotenv
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix=',', intents=intents, help_command=None)
-
+load_dotenv() 
+token = os.getenv('DISCORD_TOKEN')
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user}')
@@ -118,4 +120,4 @@ async def uptime(ctx):
     await ctx.send(embed=embed)
 
 bot.start_time = datetime.datetime.utcnow()
-bot.run('')
+bot.run(token)
