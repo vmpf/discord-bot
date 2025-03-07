@@ -118,4 +118,4 @@ async def uptime(ctx):
     await ctx.send(embed=embed)
 
 bot.start_time = datetime.datetime.utcnow()
-bot.run('MTM0NzU3NDY5MTk2NzI3NTAzOA.GEEt0w.NPJS72oB0jWxO0g9iofstO_6uRTV5DucIIIfyA')
+bot.run('')
